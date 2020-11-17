@@ -1,0 +1,27 @@
+{
+    "title": "Sign in",
+    "description": "Validation of user information",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "minLength": 3
+      },
+      "password": {
+        "type": "string",
+        "minLength": 5
+      },
+      "avatar": {
+        "type": "string"
+      },
+      "active": {
+          "type": "boolean"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "avatar"
+    ]
+  }
+  

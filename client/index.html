@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>courses web-app</title>
+  
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<script src="https://kit.fontawesome.com/8faacb2a17.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <img src="img/icon.png" alt="icon2" class="img-icon">
+
+<div class="login-wrap" style="display:block;" id="login-wrap">
+
+  <div class="log">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+    <div class="login-form">
+      <div class="sign-in-htm">
+        <br>
+        <br>
+        <div class="group">
+          <label for="user1" class="label">Username</label>
+          <input id="user1" type="text" class="input">
+        </div>
+        <div class="group">
+          <label for="pass1" class="label">Password</label>
+          <input id="pass1" type="password" class="input" data-type="password">
+        </div>
+        <div class="group">
+          <input id="check1" type="checkbox" class="check" checked>
+          <label for="check1"><span class="icon"></span> Keep me Signed in</label>
+        </div>
+        <div class="group">
+
+          <input id="sign-in-button" type="submit" class="button" value="Sign In">
+
+        </div>
+        <div class="hr"></div>
+      </div>
+      <div class="sign-up-htm">
+        <div class="group">
+          <label for="user2" class="label">Username</label>
+          <input id="user2" type="text" class="input">
+        </div>
+        <div class="group">
+          <label for="pass2" class="label">Password</label>
+          <input id="pass2" type="password" class="input" data-type="password">
+          
+        </div>
+        <div class="group">
+          <div class="form-group">
+            <select class="form-control" id="my-select">
+              <option class="label">Select Avatar Number</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+            </select>
+          </div>
+          <div class="img-container" id="va">
+        <input class="avatar-img img4" id="av1">
+        
+         </div>
+        </div>
+       
+        <div class="group">
+          <input  id="signup" class="button" type="submit" value="Sign Up">
+        </div>
+        <div class="hr"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id='root' style="display:none;"><div id="container">
+
+  <aside>
+    <header>
+      <input type="text" placeholder="search">
+    </header>
+
+    <ul id="users-list">
+     
+    </ul>
+  </aside>
+  <main>
+    <header>
+    <h2 class="text-primary">Can you name two programming paradigms important for JavaScript app developers?</h2>>
+    </header>
+    <ul id="chat">
+
+    
+     
+
+    </ul>
+    <footer>
+      <textarea id="myComment" placeholder="Type your message"></textarea>
+      
+      <a  class="btn btn-primary" href="#" role="button" id="submitComment">Send</a>
+    </footer>
+  </main>
+</div></div>
+
+  
+</body>
+<script type="module" src="./app/init.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</html>
