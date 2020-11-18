@@ -5,7 +5,7 @@ import { leaveComment } from './handlers/leave_comment.js';
 import { editCommentOnDC, editCommentOnBlur, editCommentOnfocus } from './handlers/edit-comment.js';
 import { deleteMessage } from './handlers/deleteMessage.js';
 
-document.getElementById('my-select').addEventListener('onchange', setimage);
+document.getElementById('my-select').addEventListener('change', setimage);
 document.getElementById('signup').addEventListener('click', register);
 
 /*Sign-in Handler*/

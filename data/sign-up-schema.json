@@ -5,22 +5,19 @@
     "properties": {
       "name": {
         "type": "string",
-        "minLength": 3
+        "minLength": 1
       },
       "password": {
         "type": "string",
-        "minLength": 5
+        "minLength": 1
       },
       "avatar": {
         "type": "string"
-      },
-      "active": {
-          "type": "boolean"
       }
     },
     "required": [
-      "id",
       "name",
+      "password",
       "avatar"
     ]
   }

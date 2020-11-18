@@ -1,25 +1,27 @@
 'use strict';
 
-const util = require('util');
-const fs = require('fs');
 const path = require('path');
 const tv4 = require('tv4');
-const config = require('../config/index.js');
 
-const readFile = util.promisify(fs.readFile);
-const writeFile = util.promisify(fs.writeFile);
+const SCHEMA = require('../data/sign-up-schema.json');
+const DATA_PATH = path.join(__dirname, '..', 'data', 'chat.db');
 
-const SCHEMA = path.join(__dirname, '/..', config.DATA_DIR, '/_-schema.json');
-const DATA_PATH = path.join(__dirname, '..', 'data', 'data.json');
+// database
+const sqlite3 = require('sqlite3').verbose();
+
+// check database connection
+let db = new sqlite3.Database(DATA_PATH, (err) => {
+	if (err) {
+		return console.error(err.message);
+	}
+	console.log('Connected to the chat.db  SQlite database.');
+});
 
 const controllers = {
 	readAll: async (req, res) => {
 		const newUser = req.body;
 
 		try {
-			const readData = await readFile(DATA_PATH, 'utf-8');
-			const parseRead = JSON.parse(readData);
-
 			const isValid = tv4.validate(newUser, SCHEMA);
 
 			if (!isValid) {
@@ -34,17 +36,10 @@ const controllers = {
 				});
 				return;
 			}
-
-			res.json(parseRead);
-		} catch {
-			console.log(err);
-
-			if (err && err.code === 'ENOENT') {
-				res.status(404).end();
-				return;
-			}
+		} catch (err) {
+			console.error(err.message);
 		}
-	},
+	} /*
 	signUp: async (req, res) => {
 		const newUser = req.body;
 
@@ -132,7 +127,7 @@ const controllers = {
 		} catch (err) {
 			console.error(err);
 		}
-	},
+	},*/,
 };
 
 module.exports = controllers;
