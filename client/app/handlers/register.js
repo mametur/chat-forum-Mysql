@@ -37,6 +37,13 @@ export const register = async (e) => {
 			},
 			body: JSON.stringify(userInfo),
 		});
+
+		const checkUser = await response.json();
+
+		if (checkUser) {
+			alert(userInfo.name + ' username already exists');
+			return;
+		}
 	} catch (err) {
 		console.log('my error', err);
 	}

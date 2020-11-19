@@ -26,8 +26,6 @@
 
 ## About The Project
 
-This project aims to learn and improve RESTful API skills. This project has two pages. On the first page, the user can log in or register. On the second page, if a user can successfully log into the website, this user can leave comments and read. Uniqe user can only change his or her comment.
-
 ### Built With
 
 - [Visual studio code](https://code.visualstudio.com/)
