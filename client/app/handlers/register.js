@@ -39,10 +39,13 @@ export const register = async (e) => {
 		});
 
 		const checkUser = await response.json();
-
-		if (checkUser) {
+		console.log('restired data', checkUser);
+		if (checkUser.data.length) {
 			alert(userInfo.name + ' username already exists');
 			return;
+		} else {
+			alert(`${checkUser.message}`);
+			location.reload();
 		}
 	} catch (err) {
 		console.log('my error', err);
