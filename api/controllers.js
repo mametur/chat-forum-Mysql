@@ -1,12 +1,13 @@
 'use strict';
 const path = require('path');
 const tv4 = require('tv4');
+const db = require('./databaseConnection.js');
 
 const SCHEMA = require('../data/sign-up-schema.json');
 const DATA_PATH = path.join(__dirname, '..', 'data', 'chat.db');
 
 const controllers = {
-	readAll: async (req, res) => {
+	readAll: (req, res) => {
 		const newUser = req.body;
 
 		try {
@@ -25,6 +26,23 @@ const controllers = {
 				return;
 			}
 			console.log(newUser.name);
+			let sql = `SELECT name FROM users Where name = '${newUser.name}'`;
+			let insertUser = `INSERT INTO users (name, password, avatar) VALUES ('${newUser.name}', '${newUser.password}','${newUser.avatar}')`;
+			db.query(sql, (err, data) => {
+				if (err) throw err;
+				console.log('datas', data[0]);
+				const isExist = Boolean(data[0]);
+				if (!isExist) {
+					db.query(insertUser, (err, result) => {
+						if (err) throw err;
+					});
+				}
+				res.json({
+					status: 200,
+					data,
+					message: `${newUser.name} user has been successfully registered`,
+				});
+			});
 		} catch (err) {
 			console.error(err.message);
 		}
