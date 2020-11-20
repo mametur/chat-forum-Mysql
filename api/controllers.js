@@ -58,14 +58,29 @@ const controllers = {
 				console.log('datas', data[0]);
 				const isExist = Boolean(data[0]);
 				console.log('is there', isExist);
-				/*if (!isExist) {
-					db.query(insertUser, (err, result) => {
+				let comments = {};
+				if (isExist) {
+					let comment = `SELECT * from comments`;
+					db.query(comment, (err, result) => {
 						if (err) throw err;
+						console.log('resultsss', result);
+						comments = result[0];
+						db.query(`SELECT * FROM users`, (err, users) => {
+							if (err) throw err;
+							console.log('resultsss', users);
+							comments = result[0];
+							res.json({
+								user: data,
+								comments: comments,
+								users: users,
+							});
+						});
 					});
-				}*/
-				res.json({
-					data: data,
-				});
+				} else {
+					res.json({
+						user: data,
+					});
+				}
 			});
 		} catch (err) {
 			console.error(err.message);

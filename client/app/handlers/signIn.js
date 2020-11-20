@@ -23,10 +23,10 @@ export const signIn = async (event) => {
 
 		console.log('check data base ', usersData);
 		// check user in database
-		//const activeUser = isUserExistInData(data.users, username, password);
+		const activeUser = Boolean(usersData.user.length);
 
 		// if user not exist in the database
-		/*if (!activeUser) {
+		if (!activeUser) {
 			alert(`${username.toUpperCase()}, Please sign-up, you have not any account yet`);
 		} else {
 			// render chat-forum
@@ -34,21 +34,22 @@ export const signIn = async (event) => {
 			login_page.style.display = 'none';
 			chat_forum.style.display = 'block';
 
-			IamOnline = activeUser; // this will help me later for comment to assign avatar and user name
+			IamOnline = usersData.user; // this will help me later for comment to assign avatar and user name
+			console.log('I am online', IamOnline);
 
-			if (renderAvatars(data.users)) {
+			if (usersData.users.length) {
 				const div = document.createElement('div');
-				div.innerHTML = renderAvatars(data.users);
+				div.innerHTML = renderAvatars(usersData.users);
 				avatar_list.appendChild(div);
 			}
 
-			// render comments
+			/*	// render comments
 			if (renderComments(data.comments, username)) {
 				const divChat = document.createElement('div');
 				divChat.innerHTML = renderComments(data.comments, username);
 				chat_box.appendChild(divChat);
-			}
-		}*/
+			}*/
+		}
 	} catch (err) {
 		console.log(err);
 	}
@@ -97,11 +98,11 @@ function isUserExistInData(data, name, password) {
 function renderAvatars(data) {
 	let userLists = '';
 	if (data) {
-		data.forEach((element) => {
+		data.forEach((user) => {
 			userLists += `<li>
-			<img src="/img/${element.avatar}" id='${element.name}' alt="">
+			<img src="/img/${user.avatar}.png" id='${user.name}' alt="">
 			<div>
-			  <h2 >${element.name}</h2>
+			  <h2 >${user.name}</h2>
 			</div>
 			</li>`;
 		});
