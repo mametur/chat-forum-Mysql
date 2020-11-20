@@ -43,12 +43,12 @@ export const signIn = async (event) => {
 				avatar_list.appendChild(div);
 			}
 
-			/*	// render comments
-			if (renderComments(data.comments, username)) {
+			// render comments
+			if (usersData.comments.length) {
 				const divChat = document.createElement('div');
-				divChat.innerHTML = renderComments(data.comments, username);
+				divChat.innerHTML = renderComments(usersData.comments, signedPerson.name, usersData.users);
 				chat_box.appendChild(divChat);
-			}*/
+			}
 		}
 	} catch (err) {
 		console.log(err);
@@ -86,13 +86,6 @@ export function isEmpty(name, password) {
 	}
 }
 
-// check user name and password
-function isUserExistInData(data, name, password) {
-	return data.find((userName) => {
-		return userName.name === name && userName.password === password;
-	});
-}
-
 // generate users avatar
 
 function renderAvatars(data) {
@@ -112,24 +105,25 @@ function renderAvatars(data) {
 
 // generate comments
 
-function renderComments(data, userName) {
+function renderComments(data, userName, users) {
 	let comments = '';
 	if (data) {
-		data.forEach((element) => {
-			comments += `<li class="${userName === element.name ? 'me' : 'you'}" id="${element.id}">
+		data.forEach((comment) => {
+			const findCommentUser = users.filter((user) => user.user_id === comment.userID);
+			comments += `<li class="${userName === findCommentUser[0].name ? 'me' : 'you'}" id="${comment.userID}">
         <div class="entete">
           <span class="status green"></span>
-          <h2  class="text-danger">${element.name}</h2>
-          <h3 >${element.date}</h3>
+          <h2  class="text-danger">${findCommentUser[0].name}</h2>
+          <h3 >${comment.data}</h3>
         </div>
         <div class="triangle"></div>
         <div class="message" id="user1comment">
-		<input type="text" class="text-box" value="${element.comment}" readonly>
+		<input type="text" class="text-box" value="${comment.comment}" readonly>
 		</div>
 		<div>
-		<button class="btns" data-remove="${element.id}"><i class="far fa-trash-alt" data-remove="${element.id}"></i></button>
+		<button class="btns" data-remove="${comment.userID}"><i class="far fa-trash-alt" data-remove="${comment.userID}"></i></button>
 	  </div>
-      </li>`;
+	  </li>`;
 		});
 
 		return comments;

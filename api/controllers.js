@@ -25,12 +25,10 @@ const controllers = {
 				});
 				return;
 			}
-			console.log(newUser.name);
 			let sql = `SELECT name FROM users Where name = '${newUser.name}'`;
 			let insertUser = `INSERT INTO users (name, password, avatar) VALUES ('${newUser.name}', '${newUser.password}','${newUser.avatar}')`;
 			db.query(sql, (err, data) => {
 				if (err) throw err;
-				console.log('datas', data[0]);
 				const isExist = Boolean(data[0]);
 				if (!isExist) {
 					db.query(insertUser, (err, result) => {
@@ -55,20 +53,15 @@ const controllers = {
 			let sql = `SELECT * FROM  users WHERE name = '${signInPerson.name}' and password = '${signInPerson.password}';`;
 			db.query(sql, (err, data) => {
 				if (err) throw err;
-				console.log('datas', data[0]);
 				const isExist = Boolean(data[0]);
-				console.log('is there', isExist);
 				let comments = {};
 				if (isExist) {
 					let comment = `SELECT * from comments`;
 					db.query(comment, (err, result) => {
 						if (err) throw err;
-						console.log('resultsss', result);
-						comments = result[0];
+						comments = result;
 						db.query(`SELECT * FROM users`, (err, users) => {
 							if (err) throw err;
-							console.log('resultsss', users);
-							comments = result[0];
 							res.json({
 								user: data,
 								comments: comments,
@@ -87,25 +80,5 @@ const controllers = {
 		}
 	},
 };
-/*
-	leaveComments: async (req, res, next) => {
-		const newComment = req.body;
-
-		try {
-			const readData = await readFile(DATA_PATH, 'utf-8');
-			const parseRead = JSON.parse(readData);
-
-			parseRead.comments.push(newComment);
-
-			const storeNewComment = JSON.stringify(parseRead, null, ' ');
-			await writeFile(DATA_PATH, storeNewComment);
-			console.log(storeNewComment);
-			res.json(parseRead);
-		} catch (error) {
-			next(error);
-		}
-	},
-
-};*/
 
 module.exports = controllers;
