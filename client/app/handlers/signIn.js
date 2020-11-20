@@ -110,18 +110,18 @@ function renderComments(data, userName, users) {
 	if (data) {
 		data.forEach((comment) => {
 			const findCommentUser = users.filter((user) => user.user_id === comment.userID);
-			comments += `<li class="${userName === findCommentUser[0].name ? 'me' : 'you'}" id="${comment.userID}">
+			comments += `<li class="${userName === findCommentUser[0].name ? 'me' : 'you'}" id="${comment.comment_id}">
         <div class="entete">
           <span class="status green"></span>
           <h2  class="text-danger">${findCommentUser[0].name}</h2>
           <h3 >${comment.data}</h3>
         </div>
         <div class="triangle"></div>
-        <div class="message" id="user1comment">
+        <div class="message">
 		<input type="text" class="text-box" value="${comment.comment}" readonly>
 		</div>
 		<div>
-		<button class="btns" data-remove="${comment.userID}"><i class="far fa-trash-alt" data-remove="${comment.userID}"></i></button>
+		<button class="btns" data-remove="${comment.comment_id}"><i class="far fa-trash-alt" data-remove="${comment.comment_id}"></i></button>
 	  </div>
 	  </li>`;
 		});
