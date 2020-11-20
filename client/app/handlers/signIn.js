@@ -1,7 +1,7 @@
 'use strict';
 export let IamOnline = false;
 
-export const signIn = (event) => {
+export const signIn = async (event) => {
 	const username = document.getElementById('user1').value;
 	const password = document.getElementById('pass1').value;
 	const login_page = document.getElementById('login-wrap');
@@ -9,20 +9,27 @@ export const signIn = (event) => {
 	const avatar_list = document.getElementById('users-list');
 	const chat_box = document.getElementById('chat');
 
+	const signedPerson = {
+		name: username,
+		password: password,
+	};
+
 	// throw error for empty input
 	if (isEmpty(username, password)) {
 		return;
 	}
+	try {
+		const usersData = await getUserInfo(signedPerson);
 
-	getUserInfo().then((data) => {
+		console.log('check data base ', usersData);
 		// check user in database
-		const activeUser = isUserExistInData(data.users, username, password);
-		console.log('active user', activeUser);
+		//const activeUser = isUserExistInData(data.users, username, password);
+
 		// if user not exist in the database
-		if (!activeUser) {
+		/*if (!activeUser) {
 			alert(`${username.toUpperCase()}, Please sign-up, you have not any account yet`);
 		} else {
-			/* render chat-forum*/
+			// render chat-forum
 			// render avatars
 			login_page.style.display = 'none';
 			chat_forum.style.display = 'block';
@@ -41,13 +48,22 @@ export const signIn = (event) => {
 				divChat.innerHTML = renderComments(data.comments, username);
 				chat_box.appendChild(divChat);
 			}
-		}
-	});
+		}*/
+	} catch (err) {
+		console.log(err);
+	}
 };
 //Fetch get Method
-async function getUserInfo() {
+async function getUserInfo(userInfo) {
 	try {
-		const response = await fetch('/api/users');
+		const response = await fetch('/api/signIn', {
+			method: 'post',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(userInfo),
+		});
 		//if something wrong
 		if (!response.ok) {
 			const message = `An error has accured: ${response.status}`;

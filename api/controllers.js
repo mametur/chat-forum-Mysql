@@ -7,7 +7,7 @@ const SCHEMA = require('../data/sign-up-schema.json');
 const DATA_PATH = path.join(__dirname, '..', 'data', 'chat.db');
 
 const controllers = {
-	readAll: (req, res) => {
+	signUp: (req, res) => {
 		const newUser = req.body;
 
 		try {
@@ -47,30 +47,32 @@ const controllers = {
 			console.error(err.message);
 		}
 	},
-}; /*
-	signUp: async (req, res) => {
-		const newUser = req.body;
+	signIn: (req, res) => {
+		const signInPerson = req.body;
 
 		try {
-			const readData = await readFile(DATA_PATH, 'utf-8');
-			const parseRead = JSON.parse(readData);
-
-			parseRead.users.push(newUser);
-
-			const newUserData = JSON.stringify(parseRead, null, ' ');
-			await writeFile(DATA_PATH, newUserData);
-			console.log(newUser);
-			res.json(parseRead);
+			console.log('check user', signInPerson);
+			let sql = `SELECT * FROM  users WHERE name = '${signInPerson.name}' and password = '${signInPerson.password}';`;
+			db.query(sql, (err, data) => {
+				if (err) throw err;
+				console.log('datas', data[0]);
+				const isExist = Boolean(data[0]);
+				console.log('is there', isExist);
+				/*if (!isExist) {
+					db.query(insertUser, (err, result) => {
+						if (err) throw err;
+					});
+				}*/
+				res.json({
+					data: data,
+				});
+			});
 		} catch (err) {
-			console.log(err);
-
-			if (err && err.code === 'ENOENT') {
-				res.status(404).end();
-				return;
-			}
+			console.error(err.message);
 		}
 	},
-
+};
+/*
 	leaveComments: async (req, res, next) => {
 		const newComment = req.body;
 
