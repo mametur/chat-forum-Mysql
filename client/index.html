@@ -81,7 +81,11 @@
     </div>
   </div>
 </div>
-
+<div id="welcome" class="signupmsg" style="display:none;">
+  <div class="logo" id="signupmsg">Welcome user!
+    Thank you for registering to ChatForum.Please sign-in to join the conversation!
+  </div>
+</div>
 <div id='root' style="display:none;"><div id="container">
 
   <aside>
@@ -94,8 +98,23 @@
     </ul>
   </aside>
   <main>
-    <header>
-    <h2 class="text-primary">Can you name two programming paradigms important for JavaScript app developers?</h2>>
+    <div class="msger-header">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+         <span class="dropdown-item"><input class="container_toggle" type="checkbox" id="switch"  name="mode">
+          
+          <label for="switch" class="labe" ><i class="fas fa-sun"></i>&nbsp;&nbsp;&nbsp;<i class="far fa-moon"></i></label></span>
+          <button id="logout" class="dropdown-item" type="button">Log-out &nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></button>
+        </div>
+      </div>
+     
+
+    </div>
+    <header >
+    <h2 id="header">Can you name two programming paradigms important for JavaScript app developers?</h2>
     </header>
     <ul id="chat">
 
@@ -104,17 +123,18 @@
 
     </ul>
     <footer>
-      <textarea id="myComment" placeholder="Type your message"></textarea>
-      
-      <a  class="btn btn-primary" href="#" role="button" id="submitComment">Send</a>
-    </footer>
+    <form class="msger-inputarea">
+      <input type="text" class="msger-input" placeholder="Enter your message...">
+      <button type="submit" class="btn btn-primary msger-send-btn" href="#" role="button" id="submitComment">Send</button>
+    </form>
+  </footer>
   </main>
+  
 </div></div>
 
   
 </body>
 <script type="module" src="./app/init.js"></script>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"

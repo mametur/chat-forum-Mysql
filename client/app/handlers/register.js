@@ -16,6 +16,12 @@ export const setimage = (event) => {
 };
 
 export const register = async (e) => {
+	const target = e.target;
+	const EnterKeyCode = 13;
+
+	if (!(e.keyCode === EnterKeyCode) && !(target.id === 'signup')) {
+		return;
+	}
 	const username = document.getElementById('user2').value;
 	const password = document.getElementById('pass2').value;
 	const avatar = document.getElementById('my-select').value;
@@ -44,8 +50,8 @@ export const register = async (e) => {
 			alert(userInfo.name + ' username already exists');
 			return;
 		} else {
-			alert(`${checkUser.message}`);
-			location.reload();
+			signupMassage(userInfo)
+			window.onload = timedRefresh(5000);
 		}
 	} catch (err) {
 		console.log('my error', err);
@@ -64,4 +70,17 @@ function check(user) {
 
 function isUserExistInData(data, name) {
 	return data.find((userName) => userName.name === name);
+}
+
+function signupMassage(user){
+	debugger;
+	document.getElementById('login-wrap').style.display = 'none';
+	const message=document.getElementById('welcome');
+	message.style.display= 'block';
+	const innermsg = document.getElementById('signupmsg');
+	innermsg.innerHTML= `Welcome ${user.name}! \n Thank you for registering to ChatForum.Please sign-in to join the conversation!`;
+	
+};
+function timedRefresh(timeoutPeriod) {
+	setTimeout("location.reload(true);",timeoutPeriod);
 }
