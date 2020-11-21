@@ -12,3 +12,11 @@ document.getElementById('sign-in-button').addEventListener('click', signIn);
 
 /*Leave comments handlers */
 document.getElementById('submitComment').addEventListener('click', leaveComment);
+
+//add event listener to sign-in input fields for enter key
+
+const inputTags = document.querySelectorAll('.sigInEnter');
+
+inputTags.forEach((inputTag) => {
+	inputTag.addEventListener('keyup', signIn);
+});

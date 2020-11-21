@@ -24,7 +24,6 @@ export const register = async (e) => {
 		password: password,
 		avatar: avatar,
 	};
-	console.log(userInfo);
 	if (isEmpty(userInfo.name, userInfo.password)) {
 		return;
 	}

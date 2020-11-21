@@ -1,7 +1,14 @@
 'use strict';
 export let IamOnline = false;
 
-export const signIn = async (event) => {
+export const signIn = async (e) => {
+	const target = e.target;
+	const EnterKeyCode = 13;
+
+	if (!(e.keyCode === EnterKeyCode) && !(target.id === 'sign-in-button')) {
+		return;
+	}
+
 	const username = document.getElementById('user1').value;
 	const password = document.getElementById('pass1').value;
 	const login_page = document.getElementById('login-wrap');
@@ -20,8 +27,6 @@ export const signIn = async (event) => {
 	}
 	try {
 		const usersData = await getUserInfo(signedPerson);
-
-		console.log('check data base ', usersData);
 		// check user in database
 		const activeUser = Boolean(usersData.user.length);
 
@@ -35,7 +40,6 @@ export const signIn = async (event) => {
 			chat_forum.style.display = 'block';
 
 			IamOnline = usersData.user; // this will help me later for comment to assign avatar and user name
-			console.log('I am online', IamOnline);
 
 			if (usersData.users.length) {
 				const div = document.createElement('div');
