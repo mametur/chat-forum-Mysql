@@ -231,13 +231,14 @@ a {
 }
 aside {
 	width: 260px;
-	height: 800px;
+	height: 100%;
 	background-color: #3b3e49;
 	display: inline-block;
 	font-size: 15px;
 	vertical-align: top;
 	overflow-y:scroll;
 	scroll-behavior: smooth;
+	
 }
 
 ::-webkit-scrollbar {
@@ -379,7 +380,7 @@ main header h3 {
 	list-style-type: none;
 	overflow-y: scroll;
 	height: 380px;
-	filter: blur(1px);
+	
 }
 #chat li {
 	padding: 10px 30px;
@@ -404,6 +405,7 @@ main header h3 {
 	display: inline-block;
 	text-align: left;
 	border-radius: 5px;
+	filter: none;
 }
 #chat .me {
 	text-align: right;
@@ -525,7 +527,7 @@ border-radius: 5px;
 .share-button span{
   position: absolute;
   width: 100%;
-  color: #5c5b5b;
+  color: #0d0c53;
   text-align: center;
   line-height: 80px;
   z-index: 999;
@@ -540,7 +542,7 @@ border-radius: 5px;
 .share-button button {
   flex: 1;
   font-size: 26px;
-  color: #2d3436;
+  color: #150e5a;
   text-align: center;
   transform: translateX(-100%);
   opacity: 0;

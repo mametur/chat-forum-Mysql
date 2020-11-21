@@ -2,12 +2,8 @@
 export let IamOnline = false;
 
 export const signIn = async (e) => {
-	const target = e.target;
-	const EnterKeyCode = 13;
-
-	if (!(e.keyCode === EnterKeyCode) && !(target.id === 'sign-in-button')) {
-		return;
-	}
+	debugger;
+	
 	const username = document.getElementById('user1').value;
 	const password = document.getElementById('pass1').value;
 	const login_page = document.getElementById('login-wrap');
@@ -126,7 +122,7 @@ function renderComments(data, userName, users) {
         <div class="message" id="user1comment">
 		<input type="text" class="text-box" value="${comment.comment}" readonly>
 		</div>
-		<div class='share-button'>
+		<div class='share-button'id='bb'>
 		 <span> <i class="fas fa-ellipsis-h"></i></span>
 		<button class="btn" data-remove="${comment.userID}"><i class="far fa-trash-alt" data-remove="${comment.userID}"></i></button>
 		<button class="btn" data-remove="${comment.userID}"><i class="fas fa-edit" data-remove="${comment.userID}"></i></button>

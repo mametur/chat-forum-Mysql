@@ -16,12 +16,7 @@ export const setimage = (event) => {
 };
 
 export const register = async (e) => {
-	const target = e.target;
-	const EnterKeyCode = 13;
-
-	if (!(e.keyCode === EnterKeyCode) && !(target.id === 'signup')) {
-		return;
-	}
+	
 	const username = document.getElementById('user2').value;
 	const password = document.getElementById('pass2').value;
 	const avatar = document.getElementById('my-select').value;
