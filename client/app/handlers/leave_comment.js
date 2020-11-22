@@ -2,6 +2,7 @@
 import { IamOnline } from './signIn.js';
 
 export const leaveComment = (event) => {
+	event.preventDefault();
 	const myComment = document.getElementById('myComment').value;
 	const chat_box = document.getElementById('chat');
 
@@ -10,37 +11,19 @@ export const leaveComment = (event) => {
 		alert('Please write something before submit');
 		return;
 	}
-	//creating unique ID
-	function create_UUID() {
-		var dt = new Date().getTime();
-		var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-			var r = (dt + Math.random() * 16) % 16 | 0;
-			dt = Math.floor(dt / 16);
-			return (c == 'x' ? r : (r & 0x3) | 0x8).toString(16);
-		});
-		return uuid;
-	}
-	//Send user comment to data base
-	const today = new Date();
-	const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-	const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-	const dateTime = date + ' ' + time;
+
 	let my_comment = {
-		name: IamOnline.name,
+		name: IamOnline[0].name,
+		id: IamOnline[0].user_id,
 		comment: myComment,
-		date: dateTime,
-		id: create_UUID(),
 	};
 
-	leaveNewComment(my_comment).then((data) => {
-		// render comments
-		if (renderComments(my_comment)) {
-			const liChat = document.createElement('li');
-			liChat.className = 'me';
-			liChat.id = my_comment.id;
-			liChat.innerHTML = renderComments(my_comment);
-			chat_box.firstElementChild.appendChild(liChat);
-		}
+	leaveNewComment(my_comment).then((leavedComment) => {
+		const liChat = document.createElement('li');
+		liChat.className = 'me';
+		liChat.id = leavedComment.comment[0].comment_id;
+		liChat.innerHTML = renderComments(leavedComment.comment[0], my_comment);
+		chat_box.firstElementChild.appendChild(liChat);
 	});
 };
 
@@ -54,13 +37,17 @@ function isEmpty(comment) {
 // Post Method
 async function leaveNewComment(comment) {
 	try {
-		const response = await fetch('/api/comments', {
+		const response = await fetch('/api/comment', {
 			method: 'POST',
 			body: JSON.stringify(comment),
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
 			},
 		});
+
+		const myComment = await response.json();
+
+		return myComment;
 	} catch (error) {
 		error.message;
 	}
@@ -68,19 +55,19 @@ async function leaveNewComment(comment) {
 
 // generate comments
 
-function renderComments(data) {
+function renderComments(data, user) {
 	let comments = `
         <div class="entete">
           <span class="status green"></span>
-          <h2  class="text-danger">${data.name}</h2>
-          <h3 >${data.date}</h3>
+          <h2  class="text-danger">${user.name}</h2>
+          <h3 >${data.data}</h3>
         </div>
         <div class="triangle"></div>
         <div class="message" id="user1comment">
 		<input type="text" class="text-box" value="${data.comment}" readonly>
 		</div>
 		<div>
-		<button class="btns" data-remove="${data.id}" ><i class="far fa-trash-alt" data-remove="${data.id}"></i></button>
+		<button class="btns" data-remove="${data.comment_id}" ><i class="far fa-trash-alt" data-remove="${data.comment_id}"></i></button>
 	  </div>
       `;
 
