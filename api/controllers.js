@@ -79,6 +79,26 @@ const controllers = {
 			console.error(err.message);
 		}
 	},
+	leave_comment: (req, res) => {
+		const comment = req.body;
+
+		try {
+			let sql = `INSERT INTO comments(comment,userID) VALUES('${comment.comment}', ${comment.id})`;
+			db.query(sql, (err) => {
+				if (err) throw err;
+			});
+			let getLastComment = `SELECT * FROM comments WHERE userID = 11 ORDER BY  comment_id DESC LIMIT 1`;
+			db.query(getLastComment, (err, lastComment) => {
+				if (err) throw err;
+
+				res.json({
+					comment: lastComment,
+				});
+			});
+		} catch (err) {
+			console.error(err.message);
+		}
+	},
 };
 
 module.exports = controllers;
