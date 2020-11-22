@@ -124,8 +124,10 @@ function renderComments(data, userName, users) {
 		</div>
 		<div class='share-button'id='bb'>
 		 <span> <i class="fas fa-ellipsis-h"></i></span>
+
 		<button class="btn" data-remove="${comment.comment_id}"><i class="far fa-trash-alt" data-remove="${comment.comment_id}"></i></button>
 		<button class="btn" data-remove="${comment.comment_id}"><i class="fas fa-edit" data-remove="${comment.comment_id}"></i></button>
+
 	  </div>
 	  </li>`;
 		});
