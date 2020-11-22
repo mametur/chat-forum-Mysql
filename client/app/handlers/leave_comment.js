@@ -2,6 +2,7 @@
 import { IamOnline } from './signIn.js';
 
 export const leaveComment = (event) => {
+	event.preventDefault();
 	const myComment = document.getElementById('myComment').value;
 	const chat_box = document.getElementById('chat');
 
