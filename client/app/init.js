@@ -4,6 +4,7 @@ import { signIn } from './handlers/signIn.js';
 import { leaveComment } from './handlers/leave_comment.js';
 import { nightMode } from './handlers/nightmode.js';
 import { editComment } from './handlers/edit-comment.js';
+import { deleteComment } from './handlers/delete.js';
 
 /*change avatarimages*/
 document.getElementById('my-select').addEventListener('change', setimage);
@@ -33,5 +34,8 @@ document.getElementById('submitComment').addEventListener('click', leaveComment)
 var checkbox = document.querySelector('input[name=mode]');
 checkbox.addEventListener('change', nightMode);
 
-
+/*edit comment*/
 document.getElementById('chat').addEventListener('click',editComment);
+
+/* delete comment*/
+document.getElementById('chat').addEventListener('click',deleteComment);

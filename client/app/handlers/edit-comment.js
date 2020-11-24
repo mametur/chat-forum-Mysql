@@ -17,7 +17,7 @@ async function update(comment) {
 
 
 export const editComment = (e) => {
-    debugger;
+    //debugger;
     if(e.target.id !== 'edit'){
         return
     }
@@ -48,7 +48,7 @@ export const editComment = (e) => {
                    comment: text,
 		           date: dateTime,
                 };
-                console.log(updatedComment);
+                console.log('updated-comment',updatedComment);
     update(updatedComment).then(() => {
                     const liEl = e.target.parentElement.parentElement;
                         const hEl = liEl.querySelector('h3');
