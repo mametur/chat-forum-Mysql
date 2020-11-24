@@ -99,6 +99,24 @@ const controllers = {
 			console.error(err.message);
 		}
 	},
+	update:(req,res)=>{
+		const newComment = req.body;
+		try{
+			let sql =`UPDATE comments SET comment = '${newComment.comment}' WHERE (comment_id = ${newComment.comment_id})`;
+
+            db.query(sql,(err,result)=>{
+				if(err)throw err;
+				console.log(result)
+				res.json({
+					comment:newComment
+				})
+			})
+				
+		}catch (err) {
+			console.error(err.message);
+		}
+
+	}
 };
 
 module.exports = controllers;
