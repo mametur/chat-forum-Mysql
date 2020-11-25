@@ -56,6 +56,7 @@ async function leaveNewComment(comment) {
 // generate comments
 
 function renderComments(data, user) {
+	
 	let comments = `
         <div class="entete">
           <span class="status green"></span>
@@ -64,12 +65,18 @@ function renderComments(data, user) {
         </div>
         <div class="triangle"></div>
         <div class="message" id="user1comment">
-		<input type="text" class="text-box" value="${data.comment}" readonly>
+		<input type="text" class="text-box" value="${user.comment}" readonly>
 		</div>
-		<div>
-		<button class="btns" data-remove="${data.comment_id}" ><i class="far fa-trash-alt" data-remove="${data.comment_id}"></i></button>
+		<div class='share-button'id='bb'>
+		 <span> <i class="fas fa-ellipsis-h"></i></span>
+		<button class="btns"  id ="delete" data-remove="${user.comment_id}"><i class="far fa-trash-alt" data-remove="${data.comment_id}"></i></button>
+		<button class="btns"  id ="edit" data-remove="${user.comment_id}"><i class="fas fa-edit"id ="edit" data-remove="${data.comment_id}"></i></button>
+	  </div>
 	  </div>
       `;
-
+	 console.log(data.comment_id);
+	 console.log(user.comment_id);
 	return comments;
 }
+
+ 
