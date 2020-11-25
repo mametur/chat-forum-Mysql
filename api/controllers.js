@@ -116,7 +116,21 @@ const controllers = {
 			console.error(err.message);
 		}
 
+	},
+	delete:(req,res)=>{
+		const deleteComment = req.params.id;
+		try{
+			console.log('deleted-item',deleteComment)
+			let sql = `DELETE FROM comments WHERE (comment_id = '${deleteComment}');`;
+			db.query(sql,(err,result)=>{
+				if(err)throw err;
+				console.log(result)
+			})
+
+		}catch(err){
+			console.error(err.message);
+		}
 	}
 };
-
+ 
 module.exports = controllers;

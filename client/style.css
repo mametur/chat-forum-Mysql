@@ -683,3 +683,7 @@ body.transition *:after {
 	z-index: -100;
 	position: relative;
 }
+.fa-trash-alt{
+	z-index: -100;
+	position: relative;
+}
