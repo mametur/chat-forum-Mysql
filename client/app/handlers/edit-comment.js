@@ -28,7 +28,7 @@ export const editComment = (e) => {
        const liE2 = e.target.parentElement.parentElement;
        if(liE2.className !== 'me') return;
        context.removeAttribute('readonly');
-        context.type = 'text';
+        //context.type = 'text';
         const message = e.target.parentElement.parentElement.children[2];
         message.style.backgroundColor= 'red';
         

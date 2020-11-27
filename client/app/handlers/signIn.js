@@ -51,6 +51,7 @@ export const signIn = async (e) => {
 				divChat.innerHTML = renderComments(usersData.comments, signedPerson.name, usersData.users);
 				chat_box.appendChild(divChat);
 			}
+			 
 		}
 	} catch (err) {
 		console.log(err);
@@ -108,6 +109,8 @@ function renderAvatars(data) {
 // generate comments
 
 function renderComments(data, userName, users) {
+	
+
 	let comments = '';
 	if (data) {
 		data.forEach((comment) => {
@@ -120,7 +123,7 @@ function renderComments(data, userName, users) {
         </div>
         <div class="triangle"></div>
         <div class="message">
-		<input type="text" class="text-box" value="${comment.comment}" readonly>
+		<textarea row ="4" type="text" class="text-box" readonly>${comment.comment}</textarea>
 		</div>
 		<div class='share-button'id='bb'>
 		 <span> <i class="fas fa-ellipsis-h"></i></span>

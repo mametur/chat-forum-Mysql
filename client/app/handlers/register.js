@@ -78,4 +78,11 @@ function signupMassage(user){
 };
 function timedRefresh(timeoutPeriod) {
 	setTimeout("location.reload(true);",timeoutPeriod);
-}
+};
+
+export const logout = (e) => {
+	e.target;
+  window.localStorage.clear();
+  window.location.reload();
+  window.location.replace('/');
+};

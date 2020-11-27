@@ -5,6 +5,7 @@ import { leaveComment } from './handlers/leave_comment.js';
 import { nightMode } from './handlers/nightmode.js';
 import { editComment } from './handlers/edit-comment.js';
 import { deleteComment } from './handlers/delete.js';
+import { logout} from './handlers/register.js';
 
 /*change avatarimages*/
 document.getElementById('my-select').addEventListener('change', setimage);
@@ -39,3 +40,6 @@ document.getElementById('chat').addEventListener('click',editComment);
 
 /* delete comment*/
 document.getElementById('chat').addEventListener('click',deleteComment);
+
+/* logout */
+document.getElementById('logout').addEventListener('click',logout);
