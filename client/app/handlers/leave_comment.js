@@ -65,7 +65,7 @@ function renderComments(data, user) {
         </div>
         <div class="triangle"></div>
         <div class="message" id="user1comment">
-		<input type="text" class="text-box" value="${user.comment}" readonly>
+		<textarea rows="1" type="text" class="text-box" readonly> ${user.comment}</textarea>
 		</div>
 		<div class='share-button'id='bb'>
 		 <span> <i class="fas fa-ellipsis-h"></i></span>

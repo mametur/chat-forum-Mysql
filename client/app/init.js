@@ -5,7 +5,9 @@ import { leaveComment } from './handlers/leave_comment.js';
 import { nightMode } from './handlers/nightmode.js';
 import { editComment } from './handlers/edit-comment.js';
 import { deleteComment } from './handlers/delete.js';
+import { logout} from './handlers/register.js';
 import { searchByName } from './handlers/search.js';
+
 
 /*change avatarimages*/
 document.getElementById('my-select').addEventListener('change', setimage);
@@ -39,7 +41,13 @@ checkbox.addEventListener('change', nightMode);
 document.getElementById('chat').addEventListener('click', editComment);
 
 /* delete comment*/
-document.getElementById('chat').addEventListener('click', deleteComment);
+
+document.getElementById('chat').addEventListener('click',deleteComment);
+
+/* logout */
+document.getElementById('logout').addEventListener('click',logout);
+
 
 /*Search By Name */
 document.getElementById('serchByName').addEventListener('keyup', searchByName);
+
