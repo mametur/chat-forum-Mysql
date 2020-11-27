@@ -1,9 +1,8 @@
 'use strict';
 export let IamOnline = false;
+export const listOfUsers = [];
 
 export const signIn = async (e) => {
-	debugger;
-
 	const username = document.getElementById('user1').value;
 	const password = document.getElementById('pass1').value;
 	const login_page = document.getElementById('login-wrap');
@@ -23,9 +22,12 @@ export const signIn = async (e) => {
 	try {
 		const usersData = await getUserInfo(signedPerson);
 
-		console.log('check data base ', usersData);
 		// check user in database
 		const activeUser = Boolean(usersData.user.length);
+
+		usersData.users.forEach((user) => {
+			listOfUsers.push({ name: user.name, avatar: user.avatar });
+		}); //will be used for search By Name (search.js)
 
 		// if user not exist in the database
 		if (!activeUser) {
@@ -37,11 +39,11 @@ export const signIn = async (e) => {
 			chat_forum.style.display = 'block';
 
 			IamOnline = usersData.user; // this will help me later for comment to assign avatar and user name
-			console.log('I am online', IamOnline);
 
 			if (usersData.users.length) {
 				const div = document.createElement('div');
 				div.innerHTML = renderAvatars(usersData.users);
+				div.id = 'sortBySearch';
 				avatar_list.appendChild(div);
 			}
 
