@@ -24,6 +24,9 @@ export const leaveComment = (event) => {
 		liChat.id = leavedComment.comment[0].comment_id;
 		liChat.innerHTML = renderComments(leavedComment.comment[0], my_comment);
 		chat_box.firstElementChild.appendChild(liChat);
+		document.getElementById(`${leavedComment.comment[0].comment_id}`).scrollIntoViewIfNeeded(true);
+		//https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoViewIfNeeded
+		//https://www.w3schools.com/jsref/met_element_scrollintoview.asp
 	});
 };
 
@@ -56,7 +59,6 @@ async function leaveNewComment(comment) {
 // generate comments
 
 function renderComments(data, user) {
-	
 	let comments = `
         <div class="entete">
           <span class="status green"></span>
@@ -64,19 +66,15 @@ function renderComments(data, user) {
           <h3 >${data.data}</h3>
         </div>
         <div class="triangle"></div>
-        <div class="message" id="user1comment">
+        <div class="message" >
 		<textarea rows="1" type="text" class="text-box" readonly> ${user.comment}</textarea>
 		</div>
-		<div class='share-button'id='bb'>
+		<div class='share-button' id="${data.comment_id}">
 		 <span> <i class="fas fa-ellipsis-h"></i></span>
-		<button class="btns"  id ="delete" data-remove="${user.comment_id}"><i class="far fa-trash-alt" data-remove="${data.comment_id}"></i></button>
-		<button class="btns"  id ="edit" data-remove="${user.comment_id}"><i class="fas fa-edit"id ="edit" data-remove="${data.comment_id}"></i></button>
+		<button class="btns"  id ="delete" ><i class="far fa-trash-alt" data-remove="${data.comment_id}"></i></button>
+		<button class="btns"  id ="edit"><i class="fas fa-edit"id ="edit" data-remove="${data.comment_id}"></i></button>
 	  </div>
 	  </div>
       `;
-	 console.log(data.comment_id);
-	 console.log(user.comment_id);
 	return comments;
 }
-
- 
