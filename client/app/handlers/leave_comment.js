@@ -27,6 +27,7 @@ export const leaveComment = (event) => {
 		document.getElementById(`${leavedComment.comment[0].comment_id}`).scrollIntoViewIfNeeded(true);
 		//https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoViewIfNeeded
 		//https://www.w3schools.com/jsref/met_element_scrollintoview.asp
+		document.getElementById('myComment').value = '';
 	});
 };
 
