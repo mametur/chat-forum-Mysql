@@ -25,14 +25,14 @@ export const signIn = async (e) => {
 		// check user in database
 		const activeUser = Boolean(usersData.user.length);
 
-		usersData.users.forEach((user) => {
-			listOfUsers.push({ name: user.name, avatar: user.avatar });
-		}); //will be used for search By Name (search.js)
-
 		// if user not exist in the database
 		if (!activeUser) {
 			alert(`${username.toUpperCase()}, Please sign-up, you have not any account yet`);
 		} else {
+			usersData.users.forEach((user) => {
+				listOfUsers.push({ name: user.name, avatar: user.avatar });
+			}); //will be used for search By Name (search.js)
+
 			// render chat-forum
 			// render avatars
 			login_page.style.display = 'none';
