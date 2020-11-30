@@ -87,7 +87,7 @@ const controllers = {
 			db.query(sql, (err) => {
 				if (err) throw err;
 			});
-			let getLastComment = `SELECT * FROM comments WHERE userID = 11 ORDER BY  comment_id DESC LIMIT 1`;
+			let getLastComment = `SELECT * FROM comments  ORDER BY  comment_id DESC LIMIT 1`;
 			db.query(getLastComment, (err, lastComment) => {
 				if (err) throw err;
 
@@ -99,38 +99,35 @@ const controllers = {
 			console.error(err.message);
 		}
 	},
-	update:(req,res)=>{
+	update: (req, res) => {
 		const newComment = req.body;
-		try{
-			let sql =`UPDATE comments SET comment = '${newComment.comment}' WHERE (comment_id = ${newComment.comment_id})`;
+		try {
+			let sql = `UPDATE comments SET comment = '${newComment.comment}' WHERE (comment_id = ${newComment.comment_id})`;
 
-            db.query(sql,(err,result)=>{
-				if(err)throw err;
-				console.log(result)
+			db.query(sql, (err, result) => {
+				if (err) throw err;
+				console.log(result);
 				res.json({
-					comment:newComment
-				})
-			})
-				
-		}catch (err) {
+					comment: newComment,
+				});
+			});
+		} catch (err) {
 			console.error(err.message);
 		}
-
 	},
-	delete:(req,res)=>{
+	delete: (req, res) => {
 		const deleteComment = req.params.id;
-		try{
-			console.log('deleted-item',deleteComment)
+		try {
+			console.log('deleted-item', deleteComment);
 			let sql = `DELETE FROM comments WHERE (comment_id = '${deleteComment}');`;
-			db.query(sql,(err,result)=>{
-				if(err)throw err;
-				console.log(result)
-			})
-
-		}catch(err){
+			db.query(sql, (err, result) => {
+				if (err) throw err;
+				console.log(result);
+			});
+		} catch (err) {
 			console.error(err.message);
 		}
-	}
+	},
 };
- 
+
 module.exports = controllers;
