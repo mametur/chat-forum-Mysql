@@ -24,7 +24,7 @@ export const leaveComment = (event) => {
 		liChat.id = leavedComment.comment[0].comment_id;
 		liChat.innerHTML = renderComments(leavedComment.comment[0], my_comment);
 		chat_box.firstElementChild.appendChild(liChat);
-		document.getElementById(`${leavedComment.comment[0].comment_id}`).scrollIntoViewIfNeeded(true);
+		document.getElementById(`${leavedComment.comment[0].comment_id}`).scrollIntoView();
 		//https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoViewIfNeeded
 		//https://www.w3schools.com/jsref/met_element_scrollintoview.asp
 		document.getElementById('myComment').value = '';
