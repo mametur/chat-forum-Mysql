@@ -27,7 +27,7 @@ export const deleteComment = (e) => {
 		comment_id: deleteId,
 		comment: context,
 	};
-	console.log('Deleted object', deleteDetails);
+
 	swal({
 		title: 'Are you sure?',
 		text: 'Do you really want to delete the comment?',

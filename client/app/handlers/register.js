@@ -16,7 +16,6 @@ export const setimage = (event) => {
 };
 
 export const register = async (e) => {
-	
 	const username = document.getElementById('user2').value;
 	const password = document.getElementById('pass2').value;
 	const avatar = document.getElementById('my-select').value;
@@ -25,7 +24,6 @@ export const register = async (e) => {
 		password: password,
 		avatar: avatar,
 	};
-	console.log(userInfo);
 	if (isEmpty(userInfo.name, userInfo.password)) {
 		return;
 	}
@@ -40,12 +38,12 @@ export const register = async (e) => {
 		});
 
 		const checkUser = await response.json();
-		console.log('restired data', checkUser);
+
 		if (checkUser.data.length) {
 			alert(userInfo.name + ' username already exists');
 			return;
 		} else {
-			signupMassage(userInfo)
+			signupMassage(userInfo);
 			window.onload = timedRefresh(5000);
 		}
 	} catch (err) {
@@ -67,22 +65,21 @@ function isUserExistInData(data, name) {
 	return data.find((userName) => userName.name === name);
 }
 
-function signupMassage(user){
+function signupMassage(user) {
 	debugger;
 	document.getElementById('login-wrap').style.display = 'none';
-	const message=document.getElementById('welcome');
-	message.style.display= 'block';
+	const message = document.getElementById('welcome');
+	message.style.display = 'block';
 	const innermsg = document.getElementById('signupmsg');
-	innermsg.innerHTML= `Welcome ${user.name}! \n Thank you for registering to ChatForum.Please sign-in to join the conversation!`;
-	
-};
+	innermsg.innerHTML = `Welcome ${user.name}! \n Thank you for registering to ChatForum.Please sign-in to join the conversation!`;
+}
 function timedRefresh(timeoutPeriod) {
-	setTimeout("location.reload(true);",timeoutPeriod);
-};
+	setTimeout('location.reload(true);', timeoutPeriod);
+}
 
 export const logout = (e) => {
 	e.target;
-  window.localStorage.clear();
-  window.location.reload();
-  window.location.replace('/');
+	window.localStorage.clear();
+	window.location.reload();
+	window.location.replace('/');
 };
