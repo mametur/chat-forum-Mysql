@@ -5,13 +5,13 @@
   <p align="center">
     Let's start to explore the project 🚀 
     <br />
-    <a href="https://mametur.github.io/courses-web-app/"><strong>Check the docs 📄</strong></a>
+    <a href="https://github.com/mametur/chat-forum-Mysql/blob/main/README.md"><strong>Check the docs 📄</strong></a>
     <br />
-    <a href="https://mametur.github.io/courses-web-app/">View Demo 💡</a>
+    <a href="">View Demo 💡</a>
     ·
-    <a href="https://github.com/mametur/courses-web-app/issues?q=is%3Aissue+is%3Aclosed">Report Bug 🐞</a>
+    <a href="https://github.com/mametur/chat-forum-Mysql/issues/3">Report Bug 🐞</a>
     ·
-    <a href="https://github.com/mametur/courses-web-app/pulls?q=is%3Apr+is%3Aclosed">Request Feature ⚒</a>
+    <a href="https://github.com/mametur/chat-forum-Mysql/pulls?q=is%3Apr+is%3Aclosed">Request Feature ⚒</a>
   </p>
 </p>
 
@@ -31,6 +31,9 @@
 - [Visual studio code](https://code.visualstudio.com/)
 - [GitHub](https://github.com)
 - [JavaScript](https://www.javascript.com/)
+- [Node.JS](https://nodejs.org/en/)
+- [Mysql](https://www.mysql.com/)
+- [Bootstrap](https://getbootstrap.com/)
 
 ## Debuggers
 
@@ -48,23 +51,18 @@
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/mametur/courses-web-app/blob/master/LICENSE) for more information.
-
-## Acknowledgements
-
-- [HYF](https://hackyourfuture.be/)
-- [BEST readme template](https://github.com/othneildrew/Best-README-Template/blob/master/README.md)
+Distributed under the MIT License. See [LICENSE](https://github.com/mametur/chat-forum-Mysql/blob/main/LICENSE) for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [contributors-shield]: https://img.shields.io/badge/5-Contributors%20-brightgreen
-[contributors-url]: https://github.com/mametur/courses-web-app/graphs/contributors
+[contributors-url]: https://github.com/mametur/chat-forum-Mysql/graphs/contributors
 [forks-shield]: https://img.shields.io/badge/-Forks-blue
-[forks-url]: https://github.com/mametur/courses-web-app/network/members
+[forks-url]: https://github.com/mametur/chat-forum-Mysql/network/members
 [issues-shield]: https://img.shields.io/badge/-ISSUES-green
-[issues-url]: https://github.com/mametur/courses-web-app/issues?q=is%3Aissue+is%3Aclosed
+[issues-url]: https://github.com/mametur/chat-forum-Mysql/issues/3
 [pr-shield]: https://img.shields.io/badge/-Pull%20Requests%20-blue
-[pr-url]: https://github.com/mametur/courses-web-app/pulls?q=is%3Apr+is%3Aclosed
+[pr-url]: https://github.com/mametur/chat-forum-Mysql/pulls?q=is%3Apr+is%3Aclosed
 [license-shield]: https://img.shields.io/badge/-LICENSE-brightgreen
-[license-url]: https://github.com/mametur/courses-web-app/blob/master/LICENSE
+[license-url]: https://github.com/mametur/chat-forum-Mysql/blob/main/LICENSE
