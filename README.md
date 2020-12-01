@@ -15,6 +15,8 @@
   </p>
 </p>
 
+![wireframe](./client/img/readme1.png)
+
 ## Table of Contents
 
 - [About the Project](#about-the-project)
@@ -25,6 +27,8 @@
 - [Acknowledgements](#acknowledgements)
 
 ## About The Project
+
+This project is designed by two Junior student developers who have a passion to create a chat-forum that can act as a place to discuss various IT related topics.The plan is to update it as the developers learn more techniques and widen the capabilities of the chat-forum. We would like to thank [HYF](https://hackyourfuture.be/) for giving us the opportunity to learn, explore and force our self to do better each day .
 
 ### Built With
 
@@ -41,6 +45,8 @@
 
 ## Contributing
 
+We would like to learn from you also. Please,
+
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b new-branch`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
@@ -48,6 +54,11 @@
 5. Open a Pull Request
 
 <!-- LICENSE -->
+
+## Developers
+
+- [Gelila](https://github.com/gelilaa)
+- [Mame Azad](https://github.com/mametur)
 
 ## License
 
