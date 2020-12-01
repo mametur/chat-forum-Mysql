@@ -7,7 +7,7 @@
     <br />
     <a href="https://github.com/mametur/chat-forum-Mysql/blob/main/README.md"><strong>Check the docs 📄</strong></a>
     <br />
-    <a href="">View Demo 💡</a>
+    <a href="https://mychatforum.herokuapp.com/">View Demo 💡</a>
     ·
     <a href="https://github.com/mametur/chat-forum-Mysql/issues/3">Report Bug 🐞</a>
     ·
