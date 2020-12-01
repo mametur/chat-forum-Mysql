@@ -3,7 +3,7 @@ export let IamOnline = false;
 export const listOfUsers = [];
 
 export const signIn = async (e) => {
-	const username = document.getElementById('user1').value;
+	const username = document.getElementById('user1').value.toLowerCase();
 	const password = document.getElementById('pass1').value;
 	const login_page = document.getElementById('login-wrap');
 	const chat_forum = document.getElementById('root');

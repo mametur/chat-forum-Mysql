@@ -16,7 +16,7 @@ export const setimage = (event) => {
 };
 
 export const register = async (e) => {
-	const username = document.getElementById('user2').value;
+	const username = document.getElementById('user2').value.toLowerCase();
 	const password = document.getElementById('pass2').value;
 	const avatar = document.getElementById('my-select').value;
 	const userInfo = {
